@@ -1,0 +1,679 @@
+{
+    "debug_cores": [
+        {
+            "name": "la0",
+            "type": "la",
+            "uuid": "2055cc8a9e174f53b4fdfa6013276d58",
+            "trigin_en": false,
+            "trigout_en": false,
+            "auto_inserted": true,
+            "capture_control": false,
+            "data_depth": 8192,
+            "input_pipeline": 1,
+            "probes": [
+                {
+                    "name": "u_i2c/SDA",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "u_i2c/address_detect",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "u_i2c/state",
+                    "width": 3,
+                    "probe_type": 1
+                },
+                {
+                    "name": "u_i2c/SCL",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "u_i2c/write_strobe",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "u_i2c/ack_bit",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "u_i2c/reg_00",
+                    "width": 8,
+                    "probe_type": 1
+                },
+                {
+                    "name": "u_i2c/reg_01",
+                    "width": 8,
+                    "probe_type": 1
+                },
+                {
+                    "name": "u_i2c/reg_02",
+                    "width": 8,
+                    "probe_type": 1
+                },
+                {
+                    "name": "u_i2c/reg_03",
+                    "width": 8,
+                    "probe_type": 1
+                },
+                {
+                    "name": "u_i2c/index_pointer",
+                    "width": 8,
+                    "probe_type": 1
+                }
+            ]
+        }
+    ],
+    "connections": [
+        {
+            "command": "add_ports",
+            "id": 1,
+            "args": {
+                "netlist": "i2c_controller_test",
+                "ports": [
+                    {
+                        "name": "jtag_inst1_CAPTURE",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_DRCK",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_RESET",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_RUNTEST",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_SEL",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_SHIFT",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_TCK",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_TDI",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_TMS",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_UPDATE",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_TDO",
+                        "dir": "out",
+                        "width": 1
+                    }
+                ]
+            }
+        },
+        {
+            "command": "instantiate",
+            "netlist": "edb_top",
+            "id": 2,
+            "instance": "edb_top_inst"
+        },
+        {
+            "command": "connect",
+            "id": 3,
+            "args": {
+                "instance": "edb_top_inst",
+                "ports": [
+                    {
+                        "name": "bscan_CAPTURE",
+                        "net": "jtag_inst1_CAPTURE"
+                    },
+                    {
+                        "name": "bscan_DRCK",
+                        "net": "jtag_inst1_DRCK"
+                    },
+                    {
+                        "name": "bscan_RESET",
+                        "net": "jtag_inst1_RESET"
+                    },
+                    {
+                        "name": "bscan_RUNTEST",
+                        "net": "jtag_inst1_RUNTEST"
+                    },
+                    {
+                        "name": "bscan_SEL",
+                        "net": "jtag_inst1_SEL"
+                    },
+                    {
+                        "name": "bscan_SHIFT",
+                        "net": "jtag_inst1_SHIFT"
+                    },
+                    {
+                        "name": "bscan_TCK",
+                        "net": "jtag_inst1_TCK"
+                    },
+                    {
+                        "name": "bscan_TDI",
+                        "net": "jtag_inst1_TDI"
+                    },
+                    {
+                        "name": "bscan_TMS",
+                        "net": "jtag_inst1_TMS"
+                    },
+                    {
+                        "name": "bscan_UPDATE",
+                        "net": "jtag_inst1_UPDATE"
+                    },
+                    {
+                        "name": "bscan_TDO",
+                        "net": "jtag_inst1_TDO"
+                    },
+                    {
+                        "name": "la0_clk",
+                        "net": "pll_inst1_CLKOUT1",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0",
+                        "net": "SDA",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1",
+                        "net": "address_detect",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[0]",
+                        "net": "state[0]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[1]",
+                        "net": "state[1]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[2]",
+                        "net": "state[2]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe3",
+                        "net": "SCL",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe4",
+                        "net": "write_strobe",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe5",
+                        "net": "ack_bit",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[0]",
+                        "net": "reg_00[0]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[1]",
+                        "net": "reg_00[1]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[2]",
+                        "net": "reg_00[2]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[3]",
+                        "net": "reg_00[3]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[4]",
+                        "net": "reg_00[4]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[5]",
+                        "net": "reg_00[5]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[6]",
+                        "net": "reg_00[6]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[7]",
+                        "net": "reg_00[7]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[0]",
+                        "net": "reg_01[0]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[1]",
+                        "net": "reg_01[1]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[2]",
+                        "net": "reg_01[2]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[3]",
+                        "net": "reg_01[3]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[4]",
+                        "net": "reg_01[4]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[5]",
+                        "net": "reg_01[5]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[6]",
+                        "net": "reg_01[6]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[7]",
+                        "net": "reg_01[7]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe8[0]",
+                        "net": "reg_02[0]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe8[1]",
+                        "net": "reg_02[1]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe8[2]",
+                        "net": "reg_02[2]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe8[3]",
+                        "net": "reg_02[3]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe8[4]",
+                        "net": "reg_02[4]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe8[5]",
+                        "net": "reg_02[5]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe8[6]",
+                        "net": "reg_02[6]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe8[7]",
+                        "net": "reg_02[7]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[0]",
+                        "net": "reg_03[0]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[1]",
+                        "net": "reg_03[1]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[2]",
+                        "net": "reg_03[2]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[3]",
+                        "net": "reg_03[3]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[4]",
+                        "net": "reg_03[4]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[5]",
+                        "net": "reg_03[5]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[6]",
+                        "net": "reg_03[6]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[7]",
+                        "net": "reg_03[7]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[0]",
+                        "net": "index_pointer[0]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[1]",
+                        "net": "index_pointer[1]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[2]",
+                        "net": "index_pointer[2]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[3]",
+                        "net": "index_pointer[3]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[4]",
+                        "net": "index_pointer[4]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[5]",
+                        "net": "index_pointer[5]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[6]",
+                        "net": "index_pointer[6]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[7]",
+                        "net": "index_pointer[7]",
+                        "path": [
+                            "u_i2c"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "vdbs": [
+        {
+            "file": "debug_top.post.vdb",
+            "instance": "edb_top_inst"
+        }
+    ],
+    "session": {
+        "wizard": {
+            "data_depth": 8192,
+            "capture_control": false,
+            "selected_nets": [
+                {
+                    "name": "SDA",
+                    "width": 1,
+                    "clk_domain": "pll_inst1_CLKOUT1",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "u_i2c"
+                    ]
+                },
+                {
+                    "name": "address_detect",
+                    "width": 1,
+                    "clk_domain": "pll_inst1_CLKOUT1",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "u_i2c"
+                    ]
+                },
+                {
+                    "name": "state",
+                    "width": 3,
+                    "clk_domain": "pll_inst1_CLKOUT1",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "u_i2c"
+                    ],
+                    "net_idx_left": 2,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "SCL",
+                    "width": 1,
+                    "clk_domain": "pll_inst1_CLKOUT1",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "u_i2c"
+                    ]
+                },
+                {
+                    "name": "write_strobe",
+                    "width": 1,
+                    "clk_domain": "pll_inst1_CLKOUT1",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "u_i2c"
+                    ]
+                },
+                {
+                    "name": "ack_bit",
+                    "width": 1,
+                    "clk_domain": "pll_inst1_CLKOUT1",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "u_i2c"
+                    ]
+                },
+                {
+                    "name": "reg_00",
+                    "width": 8,
+                    "clk_domain": "pll_inst1_CLKOUT1",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "u_i2c"
+                    ],
+                    "net_idx_left": 7,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "reg_01",
+                    "width": 8,
+                    "clk_domain": "pll_inst1_CLKOUT1",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "u_i2c"
+                    ],
+                    "net_idx_left": 7,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "reg_02",
+                    "width": 8,
+                    "clk_domain": "pll_inst1_CLKOUT1",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "u_i2c"
+                    ],
+                    "net_idx_left": 7,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "reg_03",
+                    "width": 8,
+                    "clk_domain": "pll_inst1_CLKOUT1",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "u_i2c"
+                    ],
+                    "net_idx_left": 7,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "index_pointer",
+                    "width": 8,
+                    "clk_domain": "pll_inst1_CLKOUT1",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "u_i2c"
+                    ],
+                    "net_idx_left": 7,
+                    "net_idx_right": 0
+                }
+            ],
+            "top_module": "i2c_controller_test",
+            "db_checksum": "ba5fce12098a2c03e7bae2e9a172d1842464edfca8e284870b3519e987537970",
+            "src": "elaborate",
+            "jtag_user": "USER1",
+            "input_pipeline": 1
+        }
+    }
+}
